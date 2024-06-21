@@ -1,0 +1,24 @@
+### server http sayHello
+GET http://{{baseHost}}/server/hello?name=tom1&pause=0.4s
+Content-Type: application/json
+Host: istio.example.com
+x-envoy-upstream-rq-timeout-ms: 500
+
+
+### Enable Timeout
+GET http://{{baseHost}}/client/hello?name=tom&pause=0.0s&enableTimeout=y
+Content-Type: application/json
+Host: istio.example.com
+
+
+### Enable Retry
+GET http://{{baseHost}}/client/hello?name=tom1&pause=1.1s&enableRetry=y
+Content-Type: application/json
+Host: istio.example.com
+
+
+### client grpc holiday
+GET http://{{baseHost}}/client/holiday?year=2024
+Content-Type: application/json
+Host: istio.example.com
+
